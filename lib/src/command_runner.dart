@@ -173,14 +173,38 @@ Run ${lightCyan.wrap('$executableName update')} to update''',
     final name = topLevelResults.option('gen')!.snakeCase;
 
     final path = p.join(
-        Directory.current.path, 'lib', 'app', name, '${name}_generator.dart');
+      Directory.current.path,
+      'lib',
+      'app',
+      name,
+      '${name}_generator.dart',
+    );
     final file = File(path);
 
     final isExists = file.existsSync();
 
     if (!isExists) return ExitCode.cantCreate;
 
-    _logger.success(file.readAsStringSync());
+    final str = await file.readAsString();
+
+    final haveAnnotation = str.contains('@DGHubGenerator(');
+
+    if (!haveAnnotation) return ExitCode.usage;
+
+    final annotation = str
+        .split('@DGHubGenerator(')[1]
+        .split('class ${name.pascalCase}Generator')[0]
+        .trim();
+
+    final haveModels = annotation.contains('models:');
+    final haveController = annotation.contains('controller:');
+    final havePages = annotation.contains('pages:');
+    final haveSocket = annotation.contains('socket:');
+
+    print('models: $haveModels');
+    print('controller: $haveController');
+    print('pages: $havePages');
+    print('socket: $haveSocket');
 
     return ExitCode.success;
   }
