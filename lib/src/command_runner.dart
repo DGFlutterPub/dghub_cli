@@ -160,11 +160,11 @@ Run ${lightCyan.wrap('$executableName update')} to update''',
     final generator = await MasonGenerator.fromBundle(mainBundle);
     final target = DirectoryGeneratorTarget(Directory.current);
 
-    final progress = _logger.progress('Generate ${name}_main.dart');
+    final progress = _logger.progress('Generate ${name}_generator.dart');
 
     await generator.generate(target, vars: {'name': name});
 
-    progress.update('Dart format');
+    progress.update('Created lib/app/$name/${name}_generator.dart');
     await Process.run('dart', ['format', '.']);
 
     progress.complete();
@@ -173,8 +173,8 @@ Run ${lightCyan.wrap('$executableName update')} to update''',
   Future<ExitCode> _genFile(ArgResults topLevelResults) async {
     final name = topLevelResults.option('gen')!.snakeCase;
 
-    final path =
-        p.join(Directory.current.path, 'lib', 'app', name, '${name}_main.dart');
+    final path = p.join(
+        Directory.current.path, 'lib', 'app', name, '${name}_generator.dart');
 
     final isExists = File(path).existsSync();
 
