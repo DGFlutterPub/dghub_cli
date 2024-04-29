@@ -174,10 +174,13 @@ Run ${lightCyan.wrap('$executableName update')} to update''',
 
     final path = p.join(
         Directory.current.path, 'lib', 'app', name, '${name}_generator.dart');
+    final file = File(path);
 
-    final isExists = File(path).existsSync();
+    final isExists = file.existsSync();
 
     if (!isExists) return ExitCode.cantCreate;
+
+    _logger.success(file.readAsStringSync());
 
     return ExitCode.success;
   }
