@@ -164,7 +164,7 @@ Run ${lightCyan.wrap('$executableName update')} to update''',
 
     await generator.generate(target, vars: {'name': name});
 
-    progress.update('Created lib/app/$name/${name}_generator.dart');
+    progress.update('Dart format');
     await Process.run('dart', ['format', '.']);
 
     progress.complete();
@@ -179,7 +179,7 @@ Run ${lightCyan.wrap('$executableName update')} to update''',
     final isExists = File(path).existsSync();
 
     if (!isExists) return ExitCode.cantCreate;
-
+    _logger.success('Created lib/app/$name/${name}_generator.dart');
     return ExitCode.success;
   }
 }
