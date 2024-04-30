@@ -178,9 +178,14 @@ Run ${lightCyan.wrap('$executableName update')} to update''',
 
     final isExists = file.existsSync();
 
-    if (!isExists) return ExitCode.cantCreate;
+    final readString = file.readAsStringSync();
 
-    _logger.success(file.readAsStringSync());
+    if (!isExists) {
+      _logger.err('Generated file not found');
+      return ExitCode.cantCreate;
+    }
+
+    _logger.success('Generated lib/app/');
 
     return ExitCode.success;
   }

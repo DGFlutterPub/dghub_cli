@@ -11,13 +11,22 @@ final mainBundle = MasonBundle.fromJson(<String, dynamic>{
       "data":
           "aW1wb3J0ICJwYWNrYWdlOmRnaHViX2dlbmVyYXRvci9kZ2h1Yl9nZW5lcmF0b3IuZGFydCI7CgpAREdIdWJHZW5lcmF0b3IoKQpjbGFzcyB7e25hbWUucGFzY2FsQ2FzZSgpfX1HZW5lcmF0b3J7fQ==",
       "type": "text"
+    },
+    {
+      "path": "node/package.json",
+      "data":
+          "aW1wb3J0ICJwYWNrYWdlOmRnaHViX2dlbmVyYXRvci9kZ2h1Yl9nZW5lcmF0b3IuZGFydCI7CgpAREdIdWJHZW5lcmF0b3IoKQpjbGFzcyB7e25hbWUucGFzY2FsQ2FzZSgpfX1HZW5lcmF0b3J7fQ==",
+      "type": "text"
+    },
+    {
+      "path": "node/app/{{name.snakeCase()}}",
     }
   ],
   "hooks": [],
-  "name": "main",
-  "description": "A new brick created with the Mason CLI.",
+  "name": "DGHub Generator",
+  "description": "Created by DGHub Studio",
   "version": "0.1.0+1",
-  "environment": {"mason": ">=0.1.0-dev.53 <0.1.0"},
+  "environment": {"dghub": "dev"},
   "readme": {
     "path": "README.md",
     "data":
