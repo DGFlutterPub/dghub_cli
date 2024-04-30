@@ -18,9 +18,6 @@ final mainBundle = MasonBundle.fromJson(<String, dynamic>{
           "aW1wb3J0ICJwYWNrYWdlOmRnaHViX2dlbmVyYXRvci9kZ2h1Yl9nZW5lcmF0b3IuZGFydCI7CgpAREdIdWJHZW5lcmF0b3IoKQpjbGFzcyB7e25hbWUucGFzY2FsQ2FzZSgpfX1HZW5lcmF0b3J7fQ==",
       "type": "text"
     },
-    {
-      "path": "node/app/{{name.snakeCase()}}",
-    }
   ],
   "hooks": [],
   "name": "DGHub Generator",
